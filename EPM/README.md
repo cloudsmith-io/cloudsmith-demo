@@ -45,7 +45,7 @@ import rego.v1  # Required for using Rego v1-specific functions
 
 ## Rego Policies in This Repository
 
-This repository contains various Rego policy examples. Each policy is stored as a separate .rego file. Below is a list of included policies:
+This repository contains various Rego policy examples for Cloudsmith's EPM. Each policy is stored as a separate .rego file. Below is a list of included policies:
 
 * CVSS-Based Policy (cvss_quarantine.rego): Triggers when a package has a CVSS score ≥ 6 and a fixed version is available.
 
