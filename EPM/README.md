@@ -43,3 +43,15 @@ import rego.v1  # Required for using Rego v1-specific functions
 * If your policy includes functions like contains() or set operations, you must include import rego.v1.
 * If you only use basic conditions, the import is optional.
 
+## Rego Policies in This Repository
+
+This repository contains various Rego policy examples. Each policy is stored as a separate .rego file. Below is a list of included policies:
+
+* CVSS-Based Policy (cvss_quarantine.rego): Triggers when a package has a CVSS score ≥ 6 and a fixed version is available.
+
+* Time-Based CVSS Policy (cvss_time_based.rego): Triggers when a vulnerability is older than 30 days, has a CVSS ≥ 7, and is not on an exclusion list.
+
+* Tag-Based Policy (tag_based_policy.rego): Triggers when a package is tagged as ready-for-production.
+
+
+
