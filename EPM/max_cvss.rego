@@ -9,7 +9,7 @@ default match := false
 max_cvss_score := 6
 
 # Target repository for the policy
-target_repository := "REPO_NAME"
+target_repository := "REPOSITORY_NAME"
 
 # Policy match criteria
 match if {
