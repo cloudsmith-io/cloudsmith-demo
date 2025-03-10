@@ -47,7 +47,7 @@ import rego.v1  # Required for using Rego v1-specific functions
 
 This repository contains various Rego policy examples for Cloudsmith's EPM. Each policy is stored as a separate .rego file. Below is a list of included policies:
 
-* CVSS-Based Policy (cvss_quarantine.rego): Triggers when a package has a CVSS score ≥ 6 and a fixed version is available.
+* CVSS-Based Policy (max_cvss.rego): Triggers when a package has a CVSS score ≥ 6 and a fixed version is available.
 
 * Time-Based CVSS Policy (cvss_time_based.rego): Triggers when a vulnerability is older than 30 days, has a CVSS ≥ 7, and is not on an exclusion list.
 
