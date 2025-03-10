@@ -33,10 +33,12 @@ Every Rego policy in Cloudsmith **must** include:
 
 ```rego
 package cloudsmith  # Required for Cloudsmith EPM policies
+```
 
 **Optional But Recommended:**
 ```rego
 import rego.v1  # Required for using Rego v1-specific functions
+```
 
 * If your policy includes functions like contains() or set operations, you must include import rego.v1.
 * If you only use basic conditions, the import is optional.
