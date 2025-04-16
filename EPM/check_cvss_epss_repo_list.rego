@@ -1,10 +1,11 @@
 package cloudsmith
+import rego.v1
 
 default match := false
 
 max_epss := 0.0004
 max_cvss_score := 7
-target_repository := "acme-nonprod"
+target_repository := "REPOSITORY_NAME"
 older_than_days := -30
 ignored_cves := {"CVE-2023-45853"}
 
