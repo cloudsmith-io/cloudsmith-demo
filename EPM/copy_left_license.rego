@@ -2,20 +2,20 @@ package cloudsmith
 import rego.v1
 
 default match := false
-copyleft := {                             # SPDX identifiers
-    "GPL-3.0", "GPLv3+", "GPL-3.0-only", "GPL-3.0-or-later",
-    "GPL-2.0", "GPL-2.0-only", "GPL-2.0-or-later",
-    "LGPL-3.0", "LGPL-2.1",
-    "AGPL-3.0", "AGPL-3.0-only", "AGPL-3.0-or-later",
-    "Apache-1.1",        # often treated as strong copyleft
-    "CPOL-1.02", "NGPL", "OSL-3.0", "QPL-1.0", "Sleepycat"
+
+# Expanded list of SPDX identifiers and common free-text variants
+copyleft := {
+    "gpl-3.0", "gplv3", "gplv3+", "gpl-3.0-only", "gpl-3.0-or-later",
+    "gpl-2.0", "gpl-2.0-only", "gpl-2.0-or-later", "gplv2", "gplv2+",
+    "lgpl-3.0", "lgpl-2.1", "lgpl", 
+    "agpl-3.0", "agpl-3.0-only", "agpl-3.0-or-later", "agpl",
+    "apache-1.1", "cpol-1.02", "ngpl", "osl-3.0", "qpl-1.0", "sleepycat",
+    "gnu general public license"
 }
 
+# Main policy rule
 match if {
-    # licence string (SPDX or free-text) hits deny-list
+    lower_license := lower(input.v0["package"].license.raw_license)
     some l in copyleft
-    licence_is(l)
+    contains(lower_license, l)
 }
-
-licence_is(l) if l == input.v0["package"].license
-licence_is(l) if contains(lower(input.v0["package"].license), lower(l))
