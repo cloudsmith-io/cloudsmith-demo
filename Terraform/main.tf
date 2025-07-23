@@ -38,6 +38,11 @@ variable "cloudsmith_org_slug" {
   type        = string
 }
 
+variable "gha_claims_owner" { 
+  description = "GH user/org used for OIDC Claims to restrict access"
+  type        = string
+}
+
 # Allow-list these countries (ISO 3166-1 codes) for repository access:
 # IE (Ireland), GB (United Kingdom), IT (Italy), US (United States), CA (Canada)
 variable "country_allow_list" {
@@ -221,7 +226,7 @@ resource "cloudsmith_oidc" "my_oidc" {
   service_accounts = [cloudsmith_service.ci_acme_service.slug]
 
   claims = {
-    "repository_owner" = "ciaracarey"  # Replace with your GH user/org
+    "repository_owner" = var.gha_claims_owner 
   }
 }
 
