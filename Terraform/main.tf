@@ -7,7 +7,7 @@ terraform {
   required_providers {
     cloudsmith = {
       source  = "cloudsmith-io/cloudsmith"
-      version = "0.0.60"  # Ensure this is the latest supported version
+      version = "0.0.62"  # Ensure this is the latest supported version
     }
   }
 }
